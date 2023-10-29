@@ -1,5 +1,10 @@
 name: Run APK Download Script
 
+on:
+  push:
+    branches:
+      - main  # Update with your branch name
+
 jobs:
   build:
     runs-on: ubuntu-latest
