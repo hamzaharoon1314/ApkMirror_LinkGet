@@ -15,7 +15,7 @@ jobs:
 
     - name: Install pup
       run: |
-        wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip -O pup
+        wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip | sudo unzip pup_v0.4.0_linux_amd64.zip -d /usr/local/bin
         chmod +x pup
         sudo mv pup /usr/local/bin/
       working-directory: .  # Set the working directory to the root directory
