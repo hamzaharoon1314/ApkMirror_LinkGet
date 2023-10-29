@@ -1,0 +1,31 @@
+name: APK Download
+
+on:
+  push:
+    branches:
+      - main  # Change this to the branch you want to trigger the action
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y bash
+      shell: bash
+
+    - name: Run APK Download Script
+      run: |
+        ./script.sh "https://www.apkmirror.com/apk/snap-inc/snapchat/snapchat-12-57-0-55-release/"  # Update with your APK link
+      working-directory: path/to/your/script-directory  # Update with the path to your script directory
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: downloaded-apk
+        path: path/to/your/downloaded-apk  # Update with the path to the downloaded APK
