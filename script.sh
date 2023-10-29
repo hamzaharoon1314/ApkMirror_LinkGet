@@ -11,6 +11,7 @@ for version in "${versions[@]}"; do
         # Extract version number and replace spaces and dots with hyphens
         version=$(echo "$version" | tr ' ' '-' | tr '.' '-' | tr '[:upper:]' '[:lower:]')
         echo "$version"
+        exit 0
     fi
 done
 
