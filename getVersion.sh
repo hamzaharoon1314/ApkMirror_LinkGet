@@ -8,8 +8,8 @@ readarray -t versions < <(pup -p 'div.widget_appmanager_recentpostswidget h5 a.f
 for version in "${versions[@]}"; do
     if [[ ! "$version" == *"Beta" ]] && [[ ! "$version" == *"beta" ]]; then
         # Extract version number and replace spaces and dots with hyphens
-        version=$(echo "$version" | tr -s ' ' | tr '.' '-' | tr '[:upper:]' '[:lower:]')
-        version=$(echo "$version" | tr -d ' ' | tr '.' '-')
+        version=$(echo "$version" | tr ' ' '-' | tr '.' '-' | tr '[:upper:]' '[:lower:]')
+  
         echo "$version"
         exit 0
     fi
