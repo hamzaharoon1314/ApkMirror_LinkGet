@@ -19,6 +19,11 @@ jobs:
         sudo apt-get install -y bash
       shell: bash
 
+    - name: Grant execute permissions to script
+      run: chmod +x script.sh
+      working-directory: .
+
+
     - name: Run APK Download Script
       run: |
         ./script.sh "https://www.apkmirror.com/apk/snap-inc/snapchat/snapchat-12-57-0-55-release/"  # Update with your APK link
