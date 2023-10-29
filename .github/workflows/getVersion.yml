@@ -1,11 +1,9 @@
 name: Get APK Version
 
 on:
-  workflow_dispatch:
-    inputs:
-      apkmirrorAppName:
-        description: 'APKMirror App Name'
-        required: true
+  push:
+    branches:
+      - main  # Update with your branch name
 
 jobs:
   get-apk-version:
@@ -24,4 +22,4 @@ jobs:
     - name: Execute getVersion.sh
       run: |
         chmod +x getVersion.sh
-        ./getVersion.sh ${{ inputs.apkmirrorAppName }}
+        ./getVersion.sh "Snapchat"
