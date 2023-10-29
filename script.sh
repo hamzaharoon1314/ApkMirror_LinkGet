@@ -12,7 +12,7 @@ for version in "${versions[@]}"; do
         version=$(echo "$version" | tr ' ' '-' | tr '.' '-' | tr '[:upper:]' '[:lower:]')
         echo "$version"
     fi
-
+done
 
 
 # Provide the apkmirror link
