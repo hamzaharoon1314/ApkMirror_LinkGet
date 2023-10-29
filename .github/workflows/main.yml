@@ -22,7 +22,7 @@ jobs:
     - name: Run APK Download Script
       run: |
         ./script.sh "https://www.apkmirror.com/apk/snap-inc/snapchat/snapchat-12-57-0-55-release/"  # Update with your APK link
-      working-directory: path/to/your/script-directory  # Update with the path to your script directory
+      working-directory: .  # Update with the path to your script directory
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
