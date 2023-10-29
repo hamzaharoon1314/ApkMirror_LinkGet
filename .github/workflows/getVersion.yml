@@ -1,0 +1,27 @@
+name: Get APK Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      apkmirrorAppName:
+        description: 'APKMirror App Name'
+        required: true
+
+jobs:
+  get-apk-version:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Bash
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+        shell: bash
+
+    - name: Execute getVersion.sh
+      run: |
+        chmod +x getVersion.sh
+        ./getVersion.sh ${{ inputs.apkmirrorAppName }}
