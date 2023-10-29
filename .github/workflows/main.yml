@@ -1,9 +1,9 @@
-name: APK Download
+name: Run APK Download Script
 
 on:
   push:
     branches:
-      - main  # Change this to the branch you want to trigger the action
+      - main  # Update with your branch name
 
 jobs:
   build:
@@ -13,24 +13,18 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Bash
+    - name: Install pup
       run: |
-        sudo apt-get update
-        sudo apt-get install -y bash
-      shell: bash
+        wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64 -O pup
+        chmod +x pup
+        sudo mv pup /usr/local/bin/
+      working-directory: .  # Set the working directory to the root directory
 
     - name: Grant execute permissions to script
       run: chmod +x script.sh
-      working-directory: .
-
+      working-directory: .  # Set the working directory to the root directory
 
     - name: Run APK Download Script
       run: |
         ./script.sh "https://www.apkmirror.com/apk/snap-inc/snapchat/snapchat-12-57-0-55-release/"  # Update with your APK link
-      working-directory: .  # Update with the path to your script directory
-
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: downloaded-apk
-        path: path/to/your/downloaded-apk  # Update with the path to the downloaded APK
+      working-directory: .  # Set the working directory to the root directory
