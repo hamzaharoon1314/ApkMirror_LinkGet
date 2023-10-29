@@ -8,9 +8,7 @@ readarray -t versions < <(pup -p 'div.widget_appmanager_recentpostswidget h5 a.f
 for version in "${versions[@]}"; do
     if [[ ! "$version" == *"Beta" ]] && [[ ! "$version" == *"beta" ]]; then
         # Extract version number and replace spaces and dots with hyphens
-        version=$(echo "$version" | tr -s ' ' | tr '.' '-')
-        # Add app name as a prefix
-        version="[snapchat-$version]"
+        version=$(echo "$version" | tr -s ' ' | tr '.' '-' | tr '[:upper:]' '[:lower:]')
         echo "$version"
         exit 0
     fi
