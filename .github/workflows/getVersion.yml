@@ -16,8 +16,22 @@ jobs:
     - name: Set up Bash
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '16'
         shell: bash
+
+
+    - name: Install unzip
+      run: sudo apt-get install unzip -y
+
+
+    - name: Install pup
+      run: |
+        wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip -O pup.zip
+        unzip pup.zip
+        chmod +x pup
+        sudo mv pup /usr/local/bin/
+      working-directory: .  # Set the working directory to the root directory
+
 
     - name: Execute getVersion.sh
       run: |
