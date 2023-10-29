@@ -9,6 +9,7 @@ for version in "${versions[@]}"; do
     if [[ ! "$version" == *"Beta" ]] && [[ ! "$version" == *"beta" ]]; then
         # Extract version number and replace spaces and dots with hyphens
         version=$(echo "$version" | tr -s ' ' | tr '.' '-' | tr '[:upper:]' '[:lower:]')
+        version=$(echo "$version" | tr -d ' ' | tr '.' '-')
         echo "$version"
         exit 0
     fi
