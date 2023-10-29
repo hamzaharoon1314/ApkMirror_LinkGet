@@ -32,5 +32,5 @@ jobs:
 
     - name: Run APK Download Script
       run: |
-        ./script.sh "https://www.apkmirror.com/apk/snap-inc/snapchat/snapchat-12-57-0-55-release/"  # Update with your APK link
+        ./script.sh
       working-directory: .  # Set the working directory to the root directory
