@@ -4,6 +4,9 @@ UserAgent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, 
 
 page1=$(curl --fail-early --connect-timeout 2 --max-time 5 -sL -A "$UserAgent" "https://www.apkmirror.com/uploads/?appcategory=Snapchat" 2>&1)
 
+# Add this line to print the content of page1
+echo "$page1"
+
 if [ "$page1" == "https://www.apkmirror.com/uploads/?appcategory=Snapchat" ]; then
     readarray -t versions < <(pup -p 'div.widget_appmanager_recentpostswidget h5 a.fontBlack text{}' <<<"$page1")
 
