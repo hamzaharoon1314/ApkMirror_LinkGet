@@ -51,14 +51,11 @@ echo 100
 echo "https://www.apkmirror.com$url3" >&2
 echo "Downloading APK from: https://www.apkmirror.com$url3"
 
-        # Download the APK file and save it as snap.apk
-        wget -U "$UserAgent" -O snap.apk "https://www.apkmirror.com$url3"
-        if [ $? -eq 0 ]; then
-            echo "APK downloaded successfully as snap.apk"
-        else
-            echo "Failed to download APK" >&2
-            exit 1
-        fi
-    fi
-done
-
+# Download the APK file and save it as snap.apk
+wget -U "$UserAgent" -O snap.apk "https://www.apkmirror.com$url3"
+if [ $? -eq 0 ]; then
+    echo "APK downloaded successfully as snap.apk"
+else
+    echo "Failed to download APK" >&2
+    exit 1
+fi
