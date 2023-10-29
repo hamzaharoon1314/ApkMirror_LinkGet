@@ -13,9 +13,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+
+    - name: Install unzip
+      run: sudo apt-get install unzip -y
+
+
     - name: Install pup
       run: |
-        wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64 -O pup
+        wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip -O pup.zip
+        unzip pup.zip
         chmod +x pup
         sudo mv pup /usr/local/bin/
       working-directory: .  # Set the working directory to the root directory
